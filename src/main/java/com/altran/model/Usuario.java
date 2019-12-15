@@ -6,10 +6,8 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
@@ -35,6 +33,9 @@ public class Usuario implements Serializable {
 	//Muitos Usuario para um papel (função)
 	@ManyToOne
 	private Role role;
+	
+	@OneToMany
+	private List<Item> items;
 	
 
 	public String getEmail() {

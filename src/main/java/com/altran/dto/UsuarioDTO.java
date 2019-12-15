@@ -3,6 +3,7 @@ package com.altran.dto;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -24,6 +25,8 @@ public class UsuarioDTO implements UserDetails, Serializable {
 	private String senha;
 
 	private RoleDTO role;
+	
+	private List<ItemDTO> items;
 
 	
 	public String getEmail() {

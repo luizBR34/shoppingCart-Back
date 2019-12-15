@@ -38,10 +38,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		.antMatchers(HttpMethod.GET, "/listarItems").hasRole("ADMIN") //Apenas admin tem acesso a essa operação
 		.antMatchers(HttpMethod.POST, "/listarItems").hasRole("ADMIN")
 		.antMatchers("/login*").permitAll()
-		.and().formLogin().loginPage("http://localhost:4200/login")
+		.and().formLogin().loginPage("http://localhost:4200/store?login=true")
 						  .loginProcessingUrl("/logar")         
-						  .defaultSuccessUrl("http://localhost:4200/itemslist")
-						  .failureUrl("http://localhost:4200/login")
+						  .defaultSuccessUrl("http://localhost:4200")
+						  .failureUrl("http://localhost:4200/store?error=true")
 		.and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")); 
 		
 		http.sessionManagement().maximumSessions(1).sessionRegistry(registroSecao());

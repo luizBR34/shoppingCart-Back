@@ -7,4 +7,5 @@ public interface ClientService {
 
 	public UsuarioDTO buscaUsuario(String email);
 	public Iterable<ItemDTO> listaItems();
+	public void cadastraItem(ItemDTO item);
 }

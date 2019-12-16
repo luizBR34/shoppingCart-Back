@@ -18,8 +18,12 @@ public class ItemDTO implements Serializable {
 	private long valor;
 	
 	private UsuarioDTO usuario;
-	
-	
+
+	public ItemDTO(long id, String nome, long valor) {
+		this.id = id;
+		this.nome = nome;
+		this.valor = valor;
+	}
 
 	public long getId() {
 		return id;

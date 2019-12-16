@@ -54,4 +54,12 @@ public class ClientServiceImpl extends ClientServiceAbstract implements ClientSe
 
 		return listaDTO;
 	}
+	
+	
+	public void cadastraItem(ItemDTO item) {
+		
+		Item entity = parserItemDTOToEntity(item);
+		ir.save(entity);
+	}
+
 }

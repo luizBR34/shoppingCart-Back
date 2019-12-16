@@ -20,12 +20,35 @@ public abstract class ClientServiceAbstract {
 		return dto;
 	}
 	
+	
+	public Usuario parserUserDTOToEntity(UsuarioDTO usuario) {
+		
+		Usuario user = new Usuario();
+		user.setNomeCompleto(usuario.getNomeCompleto());
+		user.setEmail(usuario.getEmail());
+		user.setSenha(usuario.getPassword());
+		user.setRole(parserRoleDTOToEntity(usuario.getRole()));
+		
+		return user;
+	}
+	
+	
 	public RoleDTO parserRoleEntityToDTO(Role entity) {
 		RoleDTO dto = new RoleDTO();
 		dto.setNomeRole(entity.getNomeRole());
 		
 		return dto;
 	}
+	
+	
+	public Role parserRoleDTOToEntity(RoleDTO dto) {
+		
+		Role role = new Role();
+		role.setNomeRole(dto.getNomeRole());
+		
+		return role;
+	}
+	
 	
 	
 	public ItemDTO parserItemEntityToDTO(Item entity) {
@@ -39,4 +62,14 @@ public abstract class ClientServiceAbstract {
 		return dto;
 	}
 	
+	public Item parserItemDTOToEntity(ItemDTO dto) {
+		
+		Item item = new Item();
+		item.setNome(dto.getNome());
+		item.setUsuario(parserUserDTOToEntity(dto.getUsuario()));
+		item.setValor(dto.getValor());
+		
+		return item;
+	}
+
 }

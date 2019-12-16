@@ -39,8 +39,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		.antMatchers(HttpMethod.POST, "/listarItems").hasRole("ADMIN")
 		.antMatchers("/login*").permitAll()
 		.and().formLogin().loginPage("http://localhost:4200/store?login=true")
-						  .loginProcessingUrl("/logar")         
-						  .defaultSuccessUrl("http://localhost:4200")
+						  .loginProcessingUrl("/logar")
+						  .defaultSuccessUrl("http://localhost:4200/store?login=false")
 						  .failureUrl("http://localhost:4200/store?error=true")
 		.and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")); 
 		
